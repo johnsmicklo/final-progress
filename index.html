@@ -1,0 +1,139 @@
+
+<html>
+<head>
+<title>Sketchpad &#8212; John Smicklo</title>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/paint.js"></script>
+
+<style>
+html {
+	background: #272727;
+	color: #aaa;
+	text-shadow: 0 1px #000;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
+	font-size: 90%;
+}
+#sketchpadapp {
+    /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.rightside {
+	float: right;
+	width: 860px;
+}
+.leftside { float: left; width: 300px; }
+.small { color: #fff; margin: 2% 0; padding: 3%;}
+.rightside {
+}
+.leftside { 
+}
+canvas { background: white; cursor: pointer;
+	border: 0;outline: 0;
+margin-bottom: 4%;
+	
+ }
+
+body { margin: 0 auto; }
+#sketchpad {
+    float:left;
+    height:800px;
+    width:800px;
+    box-shadow: 0px 5px 10px #000;
+    position:relative; /* Necessary for correct mouse co-ords in Firefox */
+}
+#red { background: red; }
+#orange { background: orange; }
+#yellow { background: yellow; }
+#green { background: green; }
+#blue { background: blue; }
+#indigo { background: indigo; }
+#violet { background: violet; }
+#black { background: black; }
+#white { background: white; }
+#grey { background: grey; }
+    #size { width: 2px; height: 2px; background: #fff; }
+#current_size, #current_color { font-size: smaller; text-align: right; }
+:focus { outline: 0; }
+.swatch { 
+cursor: pointer;
+	display: block;
+	width: 100px;
+	height: 15px;
+ }
+
+#brush_increase, #brush_decrease { cursor: pointer; }
+button, input[type="submit"] {
+	padding: 0.3em;
+	font-size: 200%;
+	font-weight: bold;
+	background: #FF9900;
+	border: 0;
+	border-bottom: 4px solid #CC6600;
+	cursor: pointer;
+	color: #fff;
+	text-shadow: 0 1px #cc6600; 
+	border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+}
+
+#color-panel { text-align: right; }
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: "";
+}
+
+.swatch { text-align: right; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1;}
+#center { margin:  1% auto; width: 1200px; }
+#coloring-pages ul li { display: inline; margin: 0 10px 0 0;  }
+#coloring-pages ul li img { cursor: pointer; width: 100px; height: 100px;}
+.clr { line-height: 91px; max-height: 91px; min-height: 91px; vertical-align: middle; }
+</style>
+</head>
+
+<body>
+<div class="clearfix" id="center">
+		<div class="leftside">
+		<p><strong>Tip:</strong> Drag your finger or move your mouse fast to get a more
+		"spaced out," effect.</p>
+				<section id="brush-size">	
+				<h2>Brush Size</h2>
+			<p><img id="brush_increase" src="img/brush_larger.png" /></p> <p><img id="brush_decrease" src="img/brush_smaller.png" /></p>
+			<div id="current_size"><strong>Current Size:</strong> <div id="size"></div><div id="brsh">2</div></div>
+		</section>
+		<h2>Colors</h2>
+		<p><img src="img/color.png" class="clr" /> Tap a square below to change the brush color.</p>
+					<section id="color-panel">
+			
+					</section>
+					<div id="current_color"><strong>Current Color:</strong> <div id="clr">black</div></div>
+					
+					<div id="coloring-pages">
+					<h2><img src="img/coloring.png" class="clr" /> Coloring Pages</h2>
+					<ul>
+						<li><img src="img/frog-thumb.png" id="frog" /></li>
+						<li><img src="img/fish-thumb.png" id="fish" />
+					</ul>
+					</div>
+					    <div id="sketchpadapp">
+             <input type="submit" value="Clear Canvas" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+        </div>
+		</div>
+        <div class="rightside">
+            <canvas id="sketchpad" height="800" width="800">
+            </canvas>
+<p class="small">Interactive Project by John Smicklo, Web &amp; Interactive/Multimedia Technologies</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
